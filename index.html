@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>2019作品展示-NaNa</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">
+  <style>
+    .swiper-slide{
+      width: 100%;
+      text-align: center;
+    }
+    .swiper-slide img{
+      max-width: 100%;
+    }
+    .my-swiper .swiper-button-prev, .my-swiper .swiper-button-next{
+      position: fixed;
+      top:350px;
+    }
+    .my-swiper .swiper-scrollbar{
+      position: fixed;
+      bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+    <div class="swiper-container my-swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">Slide 1</div>
+        </div>
+        <div class="swiper-button-prev"></div><!--左箭头-->
+        <div class="swiper-button-next"></div><!--右箭头-->
+        <div class="swiper-scrollbar"></div>
+    </div>
+</body>
+<script src="assets/js/data.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+<script>
+  getImgDom()
+  function getImgDom () {
+    var imgContainer = document.getElementsByClassName('swiper-wrapper')[0]
+    var imgHtml = ''
+    console.dir(imgs)
+    imgs.map(function(item, index){
+      console.log(item, index)
+      imgHtml += '<div class="swiper-slide"><img src="assets/img/' + item.url + '.jpg"/>"</div>'
+    })
+    imgContainer.innerHTML = imgHtml
+    initSwiper()
+  }
+  function initSwiper () {
+    var mySwiper = new Swiper('.swiper-container', {
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      }
+    });
+  }
+</script>
+</html>
